@@ -5,10 +5,10 @@ cat << EOF
 
     _________   ______
    / ____/   | / ____/
-  / __/ / /| |/ / __  
- / /___/ ___ / /_/ /  
-/_____/_/  |_\____/   
-                      
+  / __/ / /| |/ / __
+ / /___/ ___ / /_/ /
+/_____/_/  |_\____/
+
 
 
 EOF
@@ -21,8 +21,8 @@ read -p "Enter the name of your project: " name
 if [ ${#name} = 0 ]
 then
 	mv express-auth-generator "default"
+    rm -rf ./default/.git
 else
 	mv express-auth-generator $name
+    rm -rf ./$name/.git
 fi
-
-
