@@ -3,7 +3,9 @@
 [bash cheatsheet](https://devhints.io/bash)
 <br/>
 <br/>
-##To run the scripts
+
+To run the scripts
+
 <br/>
 <br/>
 ```
