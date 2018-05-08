@@ -1,0 +1,28 @@
+#!/bin/bash
+
+cat << EOF
+
+
+    _________   ______
+   / ____/   | / ____/
+  / __/ / /| |/ / __  
+ / /___/ ___ / /_/ /  
+/_____/_/  |_\____/   
+                      
+
+
+EOF
+
+sleep 0.5
+
+git clone "https://github.com/angadsharma1016/express-auth-generator.git"
+read -p "Enter the name of your project: " name
+
+if [ ${#name} = 0 ]
+then
+	mv express-auth-generator "default"
+else
+	mv express-auth-generator $name
+fi
+
+
