@@ -3,11 +3,9 @@
 [bash cheatsheet](https://devhints.io/bash)
 <br/>
 <br/>
-
 ##To run the scripts
 <br/>
 <br/>
-
 ```
 $ sudo mv scriptname /usr/local/bin
 $ scriptname
