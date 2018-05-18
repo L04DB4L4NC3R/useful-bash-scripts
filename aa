@@ -1,0 +1,50 @@
+#!/bin/bash
+
+
+arr=("$@");
+
+if [ $# -eq 0 ]
+then
+  cat <<'EOL'
+
+  ____          _ _                                                        __                       _   _            _                      _             _
+ / ___|___   __| (_)_ __   __ _    __ _ _ __  _____      _____ _ __ ___   / _|_ __ ___  _ __ ___   | |_| |__   ___  | |_ ___ _ __ _ __ ___ (_)_ __   __ _| |
+| |   / _ \ / _` | | '_ \ / _` |  / _` | '_ \/ __\ \ /\ / / _ \ '__/ __| | |_| '__/ _ \| '_ ` _ \  | __| '_ \ / _ \ | __/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
+| |__| (_) | (_| | | | | | (_| | | (_| | | | \__ \\ V  V /  __/ |  \__ \ |  _| | | (_) | | | | | | | |_| | | |  __/ | ||  __/ |  | | | | | | | | | | (_| | |
+ \____\___/ \__,_|_|_| |_|\__, |  \__,_|_| |_|___/ \_/\_/ \___|_|  |___/ |_| |_|  \___/|_| |_| |_|  \__|_| |_|\___|  \__\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
+                          |___/
+
+
+
+
+
+-g                              open github
+
+-g [profile]                    open a profile on github
+                                To open a repo just give query as "profile-name/repo-name"
+
+-s                              open stackoverflow
+
+-s [query]                      Search for a query on stackoverflow
+
+
+
+EOL
+exit 0
+fi
+
+
+i=0
+while [ $i -lt $# ]
+do
+  if [[ ${arr[$i]} = "-g" ]]
+  then
+    echo "Opening github... "
+    firefox www.github.com/${arr[$(($i+1))]}&
+  elif [[ ${arr[$i]} = "-s" ]]
+  then
+    echo "Opening firefox and querying stackoverflow...."
+    firefox https://stackoverflow.com/search?q=${arr[$(($i+1))]}&
+  fi
+  i=$[$i+1]
+done
