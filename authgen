@@ -20,9 +20,42 @@ read -p "Enter the name of your project: " name
 
 if [ ${#name} = 0 ]
 then
-	mv express-auth-generator "default"
-    rm -rf ./default/.git
+	  if [ $1 = "google" ]
+    then
+      mv express-auth-generator "default"
+      cd default
+      git checkout google_auth
+      rm -rf .git
+      cd ..
+    elif [ $1 = "facebook" ]
+    then
+      mv express-auth-generator "default"
+      cd default
+      git checkout facebook_auth
+      rm -rf .git
+      cd ..
+    else
+      mv express-auth-generator "default"
+      rm -rf ./default/.git
+    fi
+
 else
-	mv express-auth-generator $name
+  if [ $1 = "google" ]
+  then
+    mv express-auth-generator $name
+    cd $name
+    git checkout google_auth
+    rm -rf .git
+    cd ..
+  elif [ $1 = "facebook" ]
+  then
+    mv express-auth-generator $name
+    cd $name
+    git checkout facebook_auth
+    rm -rf .git
+    cd ..
+  else
+    mv express-auth-generator $name
     rm -rf ./$name/.git
+  fi
 fi
