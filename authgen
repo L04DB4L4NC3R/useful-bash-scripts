@@ -13,12 +13,38 @@ cat << EOF
 
 EOF
 
+if [ $# -eq 0 ]
+then
+  cat <<'EOL'
+
+
+  usage: authgen [options]
+
+
+
+
+  Options:
+
+      facebook_auth                           project init for facebook_auth
+
+
+      google_auth                             project init for google_auth
+
+
+      all                                     project init for both facebook and google auth
+
+
+EOL
+exit 0
+fi
+
+
 sleep 0.5
 
 git clone "https://github.com/angadsharma1016/express-auth-generator.git"
 read -p "Enter the name of your project: " name
 
-if [ ${#name} = 0 ]
+if [ $1 = "all" ]
 then
 	  if [ $1 = "google" ]
     then
